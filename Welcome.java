@@ -4,8 +4,9 @@ import java.util.Scanner;
 public class Welcome {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        boolean status = true;
+        Scanner input = new Scanner(System.in); 
+
+        boolean status = true; // เซ็ตเพื่อให้โปรแกรมทำงานได้เรื่อยๆตอนuserใส่ อย่างอื่นนอกจากข้อกความ
 
         System.out.println("********************************");
         System.out.println("Welcome to Booking Car Program");
@@ -23,7 +24,8 @@ public class Welcome {
                 int user_choose = input.nextInt();
                 if (user_choose == 1) {
                     status = false;
-                    // เขียนฟังชั่นตรงนี้จองรถตรงนี้
+                    // เขียนฟังชั่นจองรถตรงนี้ ถ้าผู้ใช้เลือกจอง ให้แสดงว่ารถรุ่นนี้มีอะไรบ้างและให้เก็บค่าไว้ด้วยว่าผู้ใช้เลือกอะไร จากนั้นเมื่อเลือกเสร็จให้เลือกเวลาต่อว่าผู้ใช้จะจองเวลาไหนแล้วก็ เก็บค่าไว้ด้วย
+
                 } else if (user_choose == 2) {
                     status = false;
                     // เขียนฟังชั่นดูข้อมูล
