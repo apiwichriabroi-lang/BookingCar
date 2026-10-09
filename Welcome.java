@@ -43,3 +43,7 @@ public class Welcome {
         input.close();
     }
 }
+
+// git add .
+// git commit -m " ข้อความ" 
+// git push -u origin main
