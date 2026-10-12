@@ -4,7 +4,8 @@ import java.util.Scanner;
 public class Welcome {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in); 
+
+        Scanner input = new Scanner(System.in);
 
         boolean status = true; // เซ็ตเพื่อให้โปรแกรมทำงานได้เรื่อยๆตอนuserใส่ อย่างอื่นนอกจากข้อกความ
 
@@ -13,22 +14,69 @@ public class Welcome {
         System.out.println("********************************");
 
         while (status) {
-            System.out.print("What you want to Do?");
+            System.out.println("What you want to Do?");
 
             System.out.println("1) Booking a car");
             System.out.println("2) Check the information");
+            System.out.println("3) Cancel Booking");
 
-            System.out.print("Enter what you want 1 or 2 = ");
+            System.out.print("Enter what you want  = ");
             try {
 
                 int user_choose = input.nextInt();
+
                 if (user_choose == 1) {
-                    status = false;
-                    // เขียนฟังชั่นจองรถตรงนี้ ถ้าผู้ใช้เลือกจอง ให้แสดงว่ารถรุ่นนี้มีอะไรบ้างและให้เก็บค่าไว้ด้วยว่าผู้ใช้เลือกอะไร จากนั้นเมื่อเลือกเสร็จให้เลือกเวลาต่อว่าผู้ใช้จะจองเวลาไหนแล้วก็ เก็บค่าไว้ด้วย
+
+                    System.out.println("1) Honda");
+                    System.out.println("2) Toyota");
+                    System.out.println("3) Mazda");
+                    System.out.println("4) Nissan");
+                    
+
+                    while (status) {
+                        try {
+                            System.out.print("Which one do you wanna choose = ");
+                            int selected = input.nextInt();
+                            if (selected < 1 || selected > 4) {
+                                System.out.println("please answer in the choice ");
+
+                            } else {
+                                status = false;
+                                if(selected == 1) {
+                                    Honda myHondaShop = new Honda();
+                                    myHondaShop.displayHondaCars();
+                                    int user_selected_car = input.nextInt();
+                            } 
+                            else if(selected == 2) {
+
+                                    Toyota myToyota = new Toyota();
+                                    myToyota.displayHondaCars();
+                            
+                             } 
+                            else if(selected == 3) {
+
+                                    Mazda myMazda = new Mazda();
+                                    myMazda.displayHondaCars();
+                            }
+                            else if(selected == 4) {
+
+                                Nissan myNissan = new Nissan();
+                                myNissan.displayHondaCars();
+                            }
+
+                            }
+                        } catch (InputMismatchException e) {
+                            System.out.println("Your answer is invalid");
+
+                            input.next();
+                        }
+                    }
 
                 } else if (user_choose == 2) {
                     status = false;
                     // เขียนฟังชั่นดูข้อมูล
+                } else if(user_choose == 3) {
+                    status = false;
                 }
             } catch (InputMismatchException e) {
 
@@ -40,10 +88,9 @@ public class Welcome {
             }
         }
 
-        input.close();
-    }
-}
+    input.close();
+}}
 
 // git add .
-// git commit -m " ข้อความ" 
+// git commit -m " ข้อความ"
 // git push -u origin main
